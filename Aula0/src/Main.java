@@ -1,5 +1,4 @@
 package Aula0.src;
-
 import java.util.ArrayList;
 
 public class Main {
@@ -37,9 +36,6 @@ public class Main {
 
         String srt2 = String.valueOf(number);
         System.out.println("int to String: " + srt2);
-
-
-
 
     }
 }
