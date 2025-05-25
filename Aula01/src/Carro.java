@@ -7,11 +7,11 @@ public class Carro implements Veiculo {
         private int ano;
 
         // Construtor vazio
-        public Carro() {
+        protected Carro() {
         }
 
         // Construtor com parâmetros
-        public Carro(String modelo, String cor, int ano) {
+        protected Carro(String modelo, String cor, int ano) {
             this.modelo = modelo;
             this.cor = cor;
             this.ano = ano;
