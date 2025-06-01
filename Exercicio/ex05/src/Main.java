@@ -1,20 +1,64 @@
 package Exercicio.ex05.src;
-
-//6) (Distância entre pontos) Escreva um método distance para calcular a distância entre dois
-//pontos (x1, y1) e (x2, y2). Todos os números e valores de retorno devem ser do tipo double.
+import java.util.Scanner;
 
 public class Main {
 
-    //Método Distance
+    // converte Fahrenheit paraCelsius
+    public static double celsius(double fahrenheit) {
+        return 5.0 / 9.0 * (fahrenheit - 32);
+    }
 
-    public static double distance(double x1, double y1, double x2, double y2) {
-        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    // converte Celsius paraFahrenheit
+    public static double fahrenheit(double celsius) {
+        return 9.0 / 5.0 * celsius + 32;
     }
 
     public static void main(String[] args) {
-        double x1 = 1.0, y1 = 2.0, x2 = 4.0, y2 = 6.0;
-        double dist = distance(x1, y1, x2, y2);
-        System.out.printf("A distância entre os pontos (%.2f, %.2f) e (%.2f, %.2f) é %.2f%n", x1, y1, x2, y2, dist);
+        Scanner scanner = new java.util.Scanner(System.in);
+
+        System.out.println("O que deseja converter?");
+        System.out.println("1. Fahrenheit para Celsius");
+        System.out.println("2. Celsius para Fahrenheit");
+        System.out.print("Escolha uma opção (1 ou 2): ");
+
+        int opcao = scanner.nextInt();
+
+        if (opcao != 1 && opcao != 2) {
+            System.out.println("Opção inválida. Encerrando o programa.");
+            scanner.close();
+            return;
+        }
+
+        if (opcao == 1) {
+
+            try {
+                System.out.println("Você escolheu converter Fahrenheit para Celsius.");
+                System.out.println("Digite uma temperatura em Fahrenheit:");
+                double tempF = scanner.nextDouble();
+                double tempC = celsius(tempF);
+                System.out.printf("%.2f Fahrenheit é equivalente a %.2f Celsius%n", tempF, tempC);
+            } catch (Exception e) {
+                System.out.println("Entrada inválida. Por favor, insira uma entrada válida.");
+            }
+
+        }
+
+        if (opcao == 2) {
+
+            try {
+                System.out.println("Você escolheu converter Celsius para Fahrenheit.");
+                System.out.println("Digite uma temperatura em Celsius:");
+                double tempC = scanner.nextDouble();
+                double tempF = fahrenheit(tempC);
+                System.out.printf("%.2f Celsius é equivalente a %.2f Fahrenheit%n", tempC, tempF);
+            } catch (Exception e) {
+                System.out.println("Entrada inválida. Por favor, insira uma entrada válida.");
+            }
+
+        }
+
+        scanner.close();
     }
+
 
 }
